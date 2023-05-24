@@ -1,5 +1,8 @@
+const { catched } = require("../utils");
+
 module.exports = {
-    getFilms: require("./getFilms"),
-    createFilms: require("./createFilms"),
-    getFilm: require("./getFilm")
+    getFilms: catched(require("./getFilms")),
+    createFilms: catched(require("./createFilms")),
+    getFilm: catched(require("./getFilm")),
+    deleteFilm: catched(require("./deleteFilm"))
 }

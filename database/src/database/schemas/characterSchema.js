@@ -26,6 +26,10 @@ characterSchema.statics.insert = async function (character) {
     return await this.create(character);
 }
 
+characterSchema.statics.delete = async function (id) {
+    return await this.deleteOne({ _id: id });
+}
+
 function validateName (str) {
     return (/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(str))
 }

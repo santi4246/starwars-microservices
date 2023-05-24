@@ -9,4 +9,6 @@ router.post("/:model", validate, controllers.createItem);
 
 router.get("/:model/:id", validate, controllers.findById);
 
+router.delete("/:model/:id", validate, controllers.deleteById);
+
 module.exports = router;

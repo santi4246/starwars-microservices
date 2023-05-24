@@ -1,11 +1,11 @@
 const { ClientError } = require("../utils/errors");
 
 module.exports = (req, res, next) => {
-    const { name } = req.body;
-    if (name) {
+    const { _id, name } = req.body;
+    if (_id && name) {
         next();
     }
     else {
-        throw new ClientError(401, `Property name is missing`);
+        throw new ClientError(401, `Properties id or name are missing`);
     }
 }

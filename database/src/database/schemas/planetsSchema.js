@@ -19,11 +19,15 @@ planetSchema.statics.list = async function () {
 }
 
 planetSchema.statics.get = async function (id) {
-    return await this.find().populate("res_idents", ["_id", "name"]).populate("films", ["_id", "title"]);
+    return await this.findOne({ _id: id }).populate("res_idents", ["_id", "name"]).populate("films", ["_id", "title"]);
 }
 
 planetSchema.statics.insert = async function (planet) {
     return await this.create(planet);
+}
+
+planetSchema.statics.delete = async function (id) {
+    return await this.deleteOne({ _id: id });
 }
 
 module.exports = planetSchema;

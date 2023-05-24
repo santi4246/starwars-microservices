@@ -1,5 +1,8 @@
+const { catched } = require("../utils");
+
 module.exports = {
-    getPlanets: require("./getPlanets"),
-    createPlanets: require("./createPlanets"),
-    getPlanet: require("./getPlanet")
+    getPlanets: catched(require("./getPlanets")),
+    createPlanets: catched(require("./createPlanets")),
+    getPlanet: catched(require("./getPlanet")),
+    deletePlanet: catched(require("./deletePlanet"))
 }
