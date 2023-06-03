@@ -1,9 +1,11 @@
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
 const server = express();
 server.use(morgan("dev"));
+server.use(bodyParser.json());
 
 server.use("/characters", createProxyMiddleware({
     target:"http://characters:3002",
