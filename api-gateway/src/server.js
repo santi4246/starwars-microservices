@@ -1,11 +1,15 @@
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
 const server = express();
 server.use(morgan("dev"));
-server.use(bodyParser.json());
+server.use(cors());
+server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+server.use(bodyParser.json({ limit: "50mb" }));
+server.use(cookieParser());
 
 server.use("/characters", createProxyMiddleware({
     target:"http://characters:3002",
