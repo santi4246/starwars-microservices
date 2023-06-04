@@ -1,10 +1,12 @@
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
-
 const server = express();
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+
 server.use(morgan("dev"));
+server.use(cors());
 server.use(express.urlencoded({ extended: true, limit: "50mb" }));
 server.use(express.json({ limit: "50mb" }));
 server.use(cookieParser());
