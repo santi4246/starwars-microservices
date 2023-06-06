@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
-
 export const charactersSlice = createSlice({
     name: "characters",
-    initialState,
+    initialState: {
+        characters: []
+    },
     reducers: {
-        getCharacters: (state, action) => {
-            return { ...state, characters: action.payload }
+        getCharacters: (state, action) => {            
+            return { ...state, characters: action.payload.data }
         }
     }
 });

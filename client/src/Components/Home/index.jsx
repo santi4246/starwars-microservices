@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCharacters } from "../../Redux/Slides/Characters/charactersActions";
+import { getAllPlanets } from "../../Redux/Slides/Planets/planetsActions";
 
 export const Home = () => {
-    const characters = useSelector(state => state.characters);
+    const planets = useSelector(state => state.planets);
+    console.log("Planets: ", planets);
     const dispatch = useDispatch();
-    useEffect(() => {        
-        dispatch(getAllCharacters());
-        console.log("characters: ", characters);
-    }, [dispatch, characters]);    
+    useEffect(() => {
+        dispatch(getAllPlanets());
+    }, [dispatch]);
     return (
         <div className="App">
-            <h3>App Star Wars</h3>
+            <h3>App Star Wars</h3>            
         </div>        
     )
 }
