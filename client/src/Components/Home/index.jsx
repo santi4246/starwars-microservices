@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPlanets } from "../../Redux/Slides/Planets/planetsActions";
+import { getAllCharacters } from "../../Redux/Slides/Characters/charactersActions";
 
 export const Home = () => {
-    const planets = useSelector(state => state.planets);
-    console.log("Planets: ", planets);
+    const characters = useSelector(state => state.characters);
+    console.log("Characters: ", characters);
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getAllPlanets());
+        dispatch(getAllCharacters());
     }, [dispatch]);
     return (
         <div className="App">
