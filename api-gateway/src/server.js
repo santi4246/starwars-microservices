@@ -19,17 +19,17 @@ server.use((req, res, next) => {
 });
 
 server.use("/characters", createProxyMiddleware({
-    target:"http://characters:3002",
+    target:"https://characters:3002",
 	changeOrigin:true
 }));
 
 server.use("/films", createProxyMiddleware({
-    target:"http://films:3003",
+    target:"https://films:3003",
 	changeOrigin:true
 }));
 
 server.use("/planets", createProxyMiddleware({
-    target:"http://planets:3004",
+    target:"https://planets:3004",
 	changeOrigin:true
 }));
 
